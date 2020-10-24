@@ -1,4 +1,23 @@
 #include"Paciente.h"
+
+Paciente::Paciente()
+{
+    this->ID = "";
+    this->nombre = "";
+    this->correo = "";
+    this->secuencia = "";
+
+}
+
+Paciente::Paciente(string ID, string nombre, string correo, string secuencia, Enfermedades* enfermedad)
+{
+    this->ID = ID;
+    this->nombre = nombre;
+    this->correo = correo;
+    this->secuencia = secuencia;
+    this->enfermedad = enfermedad;
+}
+
 string Paciente::getID() const
 {
     return ID;
@@ -41,7 +60,7 @@ void Paciente::setSecuencia(string secuencia)
 
 Enfermedades* Paciente::getEnfermedad() const
 {
-    return enfermad;
+    return enfermedad;
 }
 
 void Paciente::setEnfermedad(Enfermedades* enfermedad)
@@ -49,3 +68,7 @@ void Paciente::setEnfermedad(Enfermedades* enfermedad)
     this->enfermedad = enfermedad;
 }
 
+Paciente::~Paciente()
+{
+
+}

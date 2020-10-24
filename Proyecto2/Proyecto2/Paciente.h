@@ -1,21 +1,24 @@
 #pragma once
 #include<iostream>
 #include<sstream>
+#include<string>
+#include"Enfermedades.h"
 using namespace std;
 
 
 class Paciente
 {
 private:
-	string ID;
-	string nombre;
-	string correo;
-	string secuencia;
-	Enfermedades* enfermedad;
+    string ID;
+    string nombre;
+    string correo;
+    string secuencia;
+    Enfermedades* enfermedad;
+
 public:
     Paciente();
 
-    Paciente(string ID, string nombre, string correo, );
+    Paciente(string ID, string nombre, string correo, string secuencia, Enfermedades* enfermedad);
 
     string getID() const;
     void setID(string ID);
@@ -32,5 +35,7 @@ public:
     Enfermedades* getEnfermedad() const;
     void setEnfermedad(Enfermedades* enfermedad);
 
-}
+    ~Paciente();
+
+};
 
