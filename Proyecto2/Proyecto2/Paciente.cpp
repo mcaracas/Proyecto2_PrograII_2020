@@ -9,13 +9,12 @@ Paciente::Paciente()
 
 }
 
-Paciente::Paciente(string ID, string nombre, string correo, string secuencia, Enfermedades* enfermedad)
+Paciente::Paciente(string ID, string nombre, string correo, string secuencia)
 {
     this->ID = ID;
     this->nombre = nombre;
     this->correo = correo;
     this->secuencia = secuencia;
-    this->enfermedad = enfermedad;
 }
 
 string Paciente::getID() const
@@ -57,7 +56,7 @@ void Paciente::setSecuencia(string secuencia)
 {
     this->secuencia = secuencia;
 }
-
+/*
 Enfermedades* Paciente::getEnfermedad() const
 {
     return enfermedad;
@@ -67,6 +66,11 @@ void Paciente::setEnfermedad(Enfermedades* enfermedad)
 {
     this->enfermedad = enfermedad;
 }
+
+*/
+
+
+
 
 string Paciente::toString()
 {

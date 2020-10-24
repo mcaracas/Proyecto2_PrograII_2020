@@ -1,6 +1,7 @@
 #pragma once
 #include<iostream>
 #include<sstream>
+#include<vector>
 #include<string>
 #include"Enfermedades.h"
 using namespace std;
@@ -13,12 +14,12 @@ private:
     string nombre;
     string correo;
     string secuencia;
-    Enfermedades* enfermedad;
+    vector<Enfermedades*>* enfermedad;
 
 public:
     Paciente();
 
-    Paciente(string ID, string nombre, string correo, string secuencia, Enfermedades* enfermedad);
+    Paciente(string ID, string nombre, string correo, string secuencia); //el vector de enfermedades se usa por parametros?
 
     string getID() const;
     void setID(string ID);

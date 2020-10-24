@@ -6,6 +6,11 @@ Enfermedades::Enfermedades()
     this->secuencia = "";
 }
 
+Enfermedades::Enfermedades(string nombre, string secuencia)
+{
+    this->nombre = nombre;
+    this->secuencia = secuencia;
+}
 
 string Enfermedades::getNombre() const
 {
@@ -27,3 +32,7 @@ void Enfermedades::setSecuencia(string secuencia)
     this->secuencia = secuencia;
 }
 
+Enfermedades::~Enfermedades()
+{
+
+}
