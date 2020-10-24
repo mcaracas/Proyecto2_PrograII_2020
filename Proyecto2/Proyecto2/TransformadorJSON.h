@@ -23,7 +23,7 @@ void from_json(const json& j, DireccionResidencia& d)
 NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE(Nombre, Secuencia);
 
 void to_json(json& j, const Paciente& paciente)
-{
+{ 
 	json direccionesJson = json::array();
 
 	for (auto& direccion : *paciente.getEnfermedad())
