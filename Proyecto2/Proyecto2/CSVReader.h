@@ -2,8 +2,7 @@
 #include<fstream>
 #include<string>
 #include"IReader.h"
-#include"TransformadorCsv.h"
-
+#include"ITransformadorCsv.h" 
 template<class T>
 class CsvReader : public IReader<T>
 {

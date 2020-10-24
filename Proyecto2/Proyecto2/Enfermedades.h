@@ -14,5 +14,7 @@ public:
     void setNombre(string nombre);
     string getSecuencia() const;
     void setSecuencia(string secuencia);
+    string toString();
+    ~Enfermedades();
 
 };

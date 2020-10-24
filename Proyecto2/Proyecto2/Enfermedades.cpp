@@ -6,6 +6,7 @@ Enfermedades::Enfermedades()
     this->secuencia = "";
 }
 
+
 string Enfermedades::getNombre() const
 {
     return nombre;
