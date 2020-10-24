@@ -1,53 +1,58 @@
 #pragma once
 #include"lib/json.hpp"
-#include"Enfermedades.h"
 #include"Paciente.h"
+#include"Enfermedades.h"
 #include<vector>
 using namespace std;
 using nlohmann::json;
 
 
-/*void to_json(json& j, const DireccionResidencia& d)
+/*
+Hay que investigar serializar y deserializar objetos de tipo enfermedad en JSON
+
+
+*/
+
+void to_json(json& j, const Enfermedades& d)
 {
-	j = json{ {"numeroCalle", d.numeroCalle}, {"numeroAvenida", d.numeroAvenida} };
+	j = json{ {"Nombre", d.getNombre()}, {"Secuencia", d.getSecuencia()} };
 }
 
-void from_json(const json& j, DireccionResidencia& d)
+void from_json(const json& j, Enfermedades& d)
 {
-	d.numeroAvenida = j.at("numeroCalle").get<int>();
-	d.numeroCalle = j.at("numeroAvenida").get<int>();
-}*/
-
-
-// Equivalente a lo anterior. Se puede usar cuando no tenemos punteros a otros miembros
-NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE(Nombre, Secuencia);
+	d.setNombre(j.at("Nombre").get<string>());
+	d.setSecuencia(j.at("Secuencia").get<string>());
+}
 
 void to_json(json& j, const Paciente& paciente)
 { 
-	json direccionesJson = json::array();
+	json enfermedadesJson = json::array();
 
-	for (auto& direccion : *paciente.getEnfermedad())
+	for (auto& enfer : *paciente.getEnfermedad())
 	{
-		json enfermedadesJson = *Enfermedades;
-		enfermedadesJson.push_back(enfermedadesJson);
+		json enfermedadJson = *Enfermedades;
+		enfermedadesJson.push_back(enfermedadJson);
 	}
 
-	j = json{ {"ID", paciente.getNombre()}, {"Nombre", paciente.getNombre()}, {"direcciones", direccionesJson} };
+	j = json{ {"ID", paciente.getID()}, {"Nombre", paciente.getNombre()},{"Correo", paciente.getCorreo()},{"Secuencia", paciente.getSecuencia()} ,{"enfermedades", enfermedadesJson} };
 }
 
-void from_json(const json& j, Cliente& cliente)
+void from_json(const json& j, Paciente& paciente)
 {
-	cliente.id = j.at("id").get<int>();
-	cliente.nombre = j.at("nombre").get<string>();
-	json arregloDireccionesJson = j.at("direcciones");
+	paciente.setID(j.at("ID").get<string>());
+	paciente.setNombre(j.at("Nombre").get<string>());
+	paciente.setCorreo(j.at("Correo").get<string>());
+	paciente.setSecuencia(j.at("Secuencia").get<string>());
 
-	vector<DireccionResidencia*>* direccionesResidencia = new vector<DireccionResidencia*>();
-	for (auto& objetoDireccionJson : arregloDireccionesJson)
+	json arregloEnfermedadesJson = j.at("enfermedades");
+
+	vector<Enfermedades*>* enfermedades = new vector<Enfermedades*>();
+	for (auto& objetoEnfermedadesJson : arregloEnfermedadesJson)
 	{
-		DireccionResidencia* direccion = new DireccionResidencia();
-		*direccion = objetoDireccionJson;
-		direccionesResidencia->push_back(direccion);
+		Enfermedades* enfermedad = new Enfermedades();
+		*enfermedad = objetoEnfermedadesJson;
+		enfermedades->push_back(enfermedad);
 	}
-	cliente.direcciones = direccionesResidencia;
+	paciente.getEnfermedad() = enfermedades; //???
 
 }
