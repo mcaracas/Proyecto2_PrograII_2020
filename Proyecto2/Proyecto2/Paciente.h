@@ -35,6 +35,8 @@ public:
     Enfermedades* getEnfermedad() const;
     void setEnfermedad(Enfermedades* enfermedad);
 
+    string toString();
+
     ~Paciente();
 
 };

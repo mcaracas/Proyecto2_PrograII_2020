@@ -68,6 +68,16 @@ void Paciente::setEnfermedad(Enfermedades* enfermedad)
     this->enfermedad = enfermedad;
 }
 
+string Paciente::toString()
+{
+    stringstream s;
+    s << "ID:  " << this->ID << endl;
+    s << "Nombre: " << this->nombre << endl;
+    s << "Correo: " << this->correo << endl;
+    s << "Secuencia" << this->secuencia << endl;
+    //hay que imprimir lista de enfermedades tambien
+}
+
 Paciente::~Paciente()
 {
 
