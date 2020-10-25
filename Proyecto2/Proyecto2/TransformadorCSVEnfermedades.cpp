@@ -1,6 +1,6 @@
 #include"TransformadorCSVEnfermedades.h"
 
-vector<string>* TransformadorCsvEnfermedades::toStringVector(Enfermedades* elemento)
+vector<string>* TransformadorCsvEnfermedades::toStringVector(Enfermedad* elemento)
 {
 	vector<string>* campos = new vector<string>();
 	campos->push_back(elemento->getNombre());
@@ -8,7 +8,7 @@ vector<string>* TransformadorCsvEnfermedades::toStringVector(Enfermedades* eleme
 	return campos;
 }
 
-Enfermedades* TransformadorCsvEnfermedades::fromStringVector(vector<string>* vector)
+Enfermedad* TransformadorCsvEnfermedades::fromStringVector(vector<string>* vector)
 {
-	return new Enfermedades(vector->at(0), vector->at(1));
+	return new Enfermedad(vector->at(0), vector->at(1));
 }

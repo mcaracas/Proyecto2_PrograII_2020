@@ -14,7 +14,7 @@ private:
     string nombre;
     string correo;
     string secuencia;
-    vector<Enfermedades*>* enfermedad;
+    vector<Enfermedad*>* enfermedad;
 
 public:
     Paciente();
@@ -33,8 +33,8 @@ public:
     string getSecuencia() const;
     void setSecuencia(string secuencia);
 
-    Enfermedades* getEnfermedad() const;
-    void setEnfermedad(Enfermedades* enfermedad);
+    Enfermedad* getEnfermedad() const;
+    void setEnfermedad(Enfermedad* enfermedad);
 
     string toString();
 

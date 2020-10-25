@@ -1,38 +1,38 @@
 #include"Enfermedades.h"
 
-Enfermedades::Enfermedades()
+Enfermedad::Enfermedad()
 {
     this->nombre = "";
     this->secuencia = "";
 }
 
-Enfermedades::Enfermedades(string nombre, string secuencia)
+Enfermedad::Enfermedad(string nombre, string secuencia)
 {
     this->nombre = nombre;
     this->secuencia = secuencia;
 }
 
-string Enfermedades::getNombre() const
+string Enfermedad::getNombre() const
 {
     return nombre;
 }
 
-void Enfermedades::setNombre(string nombre)
+void Enfermedad::setNombre(string nombre)
 {
     this->nombre = nombre;
 }
 
-string Enfermedades::getSecuencia() const
+string Enfermedad::getSecuencia() const
 {
     return secuencia;
 }
 
-void Enfermedades::setSecuencia(string secuencia)
+void Enfermedad::setSecuencia(string secuencia)
 {
     this->secuencia = secuencia;
 }
 
-Enfermedades::~Enfermedades()
+Enfermedad::~Enfermedad()
 {
 
 }
